@@ -1,0 +1,32 @@
+requests==2.30.0
+fastapi==0.95.1
+uvicorn==0.22.0
+gunicorn
+pydantic==1.10.7
+numpy
+scipy
+scikit-learn
+pypi-json==0.3.0
+
+
+Invoke-RestMethod -Uri "https://api.render.com/deploy/srv-chej987dvk4sofe8noa0?key=qLrXFAex314" -Method POST -ContentType "application/json" -Body '{
+  "Age": 2,
+  "Gender": 0,
+  "CurrentActivity": 2,
+  "Clothing": 12,
+  "Temperature": 30.5,
+  "Humidity": 60.0,
+  "WindSpeed": 1.5
+}'
+
+$body = @{
+    'Age' = 2
+    'Gender' = 0
+    'CurrentActivity' = 2
+    'Clothing' = 12
+    'Temperature' = 30.5
+    'Humidity' = 60.0
+    'WindSpeed' = 1.5
+} | ConvertTo-Json
+
+Invoke-RestMethod -Uri "https://comfort-prediction.onrender.com/comfort_prediction" -Method POST -Body $body -ContentType "application/json"
