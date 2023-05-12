@@ -5,5 +5,5 @@ gunicorn
 pydantic
 numpy
 scipy
-scikit-learn
+scikit-learn==1.2.2
 pypi-json
